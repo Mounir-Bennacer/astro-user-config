@@ -6,6 +6,7 @@ return {
   ["max397574/better-escape.nvim"] = { disable = true },
 
   ["andymass/vim-matchup"] = { after = "nvim-treesitter" },
+  ["nvim-treesitter/playground"] = { after = "nvim-treesitter" },
   ["arsham/indent-tools.nvim"] = {
     opt = true,
     setup = function() table.insert(astronvim.file_plugins, "indent-tools.nvim") end,
@@ -296,5 +297,136 @@ return {
     -- https://github.com/rebelot/kanagawa.nvim
     config = function() require "user.plugins.themes.kanagawa" end,
     disable = false,
+  },
+  ------------------------
+  --       TESTING      --
+  ------------------------
+  ["puremourning/vimspector"] = {
+    cmd = { "VimspectorInstall", "VimspectorUpdate" },
+    fn = { "vimspector#Launch()", "vimspector#ToggleBreakpoint", "vimspector#Continue" },
+    config = function() require("user.plugins.vimspector").setup() end,
+    disable = true,
+  },
+  ["nvim-neotest/neotest"] = {
+    requires = {
+      {
+        "vim-test/vim-test",
+        event = { "BufReadPre" },
+        config = function() require("user.plugins.test").setup() end,
+      },
+      "nvim-lua/plenary.nvim",
+      "nvim-treesitter/nvim-treesitter",
+      { "nvim-neotest/neotest-vim-test", module = { "neotest-vim-test" } },
+      { "nvim-neotest/neotest-python", module = { "neotest-python" } },
+      { "nvim-neotest/neotest-plenary", module = { "neotest-plenary" } },
+      { "nvim-neotest/neotest-go", module = { "neotest-go" } },
+      { "haydenmeade/neotest-jest", module = { "neotest-jest" } },
+      { "rouge8/neotest-rust", module = { "neotest-rust" } },
+    },
+    module = { "neotest", "neotest.async" },
+    config = function() require("user.plugins.neotest").setup() end,
+    disable = false,
+  },
+  ------------------------
+  --       WEB DEB      --
+  ------------------------
+  ["vuki656/package-info.nvim"] = {
+    opt = true,
+    requires = {
+      "MunifTanjim/nui.nvim",
+    },
+    module = { "package-info" },
+    ft = { "json" },
+    config = function() require("user.plugins.package").setup() end,
+    disable = false,
+  },
+
+  ------------------------
+  --     REST CLIENT    --
+  ------------------------
+  ["NTBBloodbath/rest.nvim"] = {
+    config = function()
+      require("rest-nvim").setup {}
+      vim.keymap.set("n", "<C-j>", "<Plug>RestNvim", { noremap = true, silent = true })
+    end,
+    disable = true,
+  },
+  ------------------------
+  --       SIDEBAR      --
+  ------------------------
+  ["liuchengxu/vista.vim"] = {
+    cmd = { "Vista" },
+    config = function() vim.g.vista_default_executive = "nvim_lsp" end,
+    disable = true,
+  },
+  ["sidebar-nvim/sidebar.nvim"] = {
+    cmd = { "SidebarNvimToggle" },
+    config = function() require("sidebar-nvim").setup { open = false } end,
+  },
+  ["stevearc/aerial.nvim"] = {
+    config = function()
+      require("aerial").setup {
+        backends = { "treesitter", "lsp" },
+        on_attach = function(bufnr)
+          vim.keymap.set("n", "{", "<cmd>AerialPrev<CR>", { buffer = bufnr })
+          vim.keymap.set("n", "}", "<cmd>AerialNext<CR>", { buffer = bufnr })
+        end,
+      }
+    end,
+    module = { "aerial", "telescope._extensions.aerial" },
+    cmd = { "AerialToggle" },
+  },
+  ------------------------
+  --      TODO LIST     --
+  ------------------------
+  ["folke/todo-comments.nvim"] = {
+    config = function() require("config.todocomments").setup() end,
+    cmd = { "TodoQuickfix", "TodoTrouble", "TodoTelescope" },
+  },
+
+  ------------------------
+  --    TRANSLATION     --
+  ------------------------
+  ["voldikss/vim-translator"] = {
+    cmd = { "Translate", "TranslateV", "TranslateW", "TranslateWV", "TranslateR", "TranslateRV", "TranslateX" },
+    config = function()
+      vim.g.translator_target_lang = "zh"
+      vim.g.translator_history_enable = true
+    end,
+  },
+  ["potamides/pantran.nvim"] = {
+    cmd = "Pantran",
+  },
+
+  ------------------------
+  -- REPL & CODE RUNNER --
+  ------------------------
+  ["hkupty/iron.nvim"] = {
+    config = function() require("user.plugins.iron").setup() end,
+    disable = true,
+  },
+
+  ["stevearc/overseer.nvim"] = {
+    opt = true,
+    module = { "neotest.consumers.overseer" },
+    cmd = {
+      "OverseerToggle",
+      "OverseerOpen",
+      "OverseerRun",
+      "OverseerBuild",
+      "OverseerClose",
+      "OverseerLoadBundle",
+      "OverseerSaveBundle",
+      "OverseerDeleteBundle",
+      "OverseerRunCmd",
+      "OverseerQuickAction",
+      "OverseerTaskAction",
+    },
+    config = function() require("overseer").setup() end,
+  },
+  ["michaelb/sniprun"] = {
+    run = "bash ./install.sh",
+    cmd = { "SnipRun", "SnipInfo", "SnipReset", "SnipReplMemoryClean", "SnipClose", "SnipLive" },
+    module = { "sniprun", "sniprun.api" },
   },
 }
