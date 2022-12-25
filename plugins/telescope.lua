@@ -1,7 +1,6 @@
-local telescope = require "telescope"
-local actions = require "telescope.actions"
+-- local telescope = require "telescope"
+-- local actions = require "telescope.actions"
 local fb_actions = require("telescope").extensions.file_browser.actions
-local hop = telescope.extensions.hop
 return {
   defaults = {
     selection_caret = "  ",
@@ -23,17 +22,7 @@ return {
         },
       },
     },
-    mappings = {
-      i = {
-        ["<C-h>"] = hop.hop,
-        ["<C-space>"] = function(prompt_bufnr)
-          hop._hop_loop(
-            prompt_bufnr,
-            { callback = actions.toggle_selection, loop_callback = actions.send_selected_to_qflist }
-          )
-        end,
-      },
-    },
+    mappings = {},
   },
   extensions = {
     bibtex = { context = true, context_fallback = false },

@@ -1,24 +1,3 @@
--- local cmp = require "cmp"
--- local luasnip = require "luasnip"
--- return {
---   mapping = {
---     ["<Tab>"] = cmp.mapping(function(fallback)
---       if luasnip.jumpable(1) then
---         luasnip.jump(1)
---       else
---         fallback()
---       end
---     end, { "i", "s" }),
---     ["<S-Tab>"] = cmp.mapping(function(fallback)
---       if luasnip.jumpable(-1) then
---         luasnip.jump(-1)
---       else
---         fallback()
---       end
---     end, { "i", "s" }),
---   },
--- }
---
 local cmp_status_ok, cmp = pcall(require, "cmp")
 if not cmp_status_ok then return end
 
@@ -45,11 +24,6 @@ end
 local compare = require "cmp.config.compare"
 
 require("luasnip/loaders/from_vscode").lazy_load()
-
--- local check_backspace = function()
---   local col = vim.fn.col "." - 1
---   return col == 0 or vim.fn.getline("."):sub(col, col):match "%s"
--- end
 
 local check_backspace = function()
   local line, col = unpack(vim.api.nvim_win_get_cursor(0))
@@ -173,7 +147,6 @@ cmp.setup {
         vim_item.kind_hl_group = "CmpItemKindConstant"
       end
 
-      -- NOTE: order matters
       vim_item.menu = ({
         nvim_lsp = "",
         nvim_lua = "",
@@ -189,7 +162,6 @@ cmp.setup {
     { name = "crates", group_index = 1 },
     {
       name = "copilot",
-      -- keyword_length = 0,
       max_item_count = 3,
       trigger_characters = {
         {
@@ -245,15 +217,15 @@ cmp.setup {
   sorting = {
     priority_weight = 2,
     comparators = {
-      -- require("copilot_cmp.comparators").prioritize,
-      -- require("copilot_cmp.comparators").score,
+      require("copilot_cmp.comparators").prioritize,
+      require("copilot_cmp.comparators").score,
       compare.offset,
       compare.exact,
-      -- compare.scopes,
+      compare.scopes,
       compare.score,
       compare.recently_used,
       compare.locality,
-      -- compare.kind,
+      compare.kind,
       compare.sort_text,
       compare.length,
       compare.order,
@@ -266,11 +238,11 @@ cmp.setup {
     select = false,
   },
   window = {
-    documentation = false,
-    -- documentation = {
-    --   border = "rounded",
-    --   winhighlight = "NormalFloat:Pmenu,NormalFloat:Pmenu,CursorLine:PmenuSel,Search:None",
-    -- },
+    -- documentation = false,
+    documentation = {
+      border = "rounded",
+      winhighlight = "NormalFloat:Pmenu,NormalFloat:Pmenu,CursorLine:PmenuSel,Search:None",
+    },
     completion = {
       border = "rounded",
       winhighlight = "NormalFloat:Pmenu,NormalFloat:Pmenu,CursorLine:PmenuSel,Search:None",

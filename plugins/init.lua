@@ -6,7 +6,6 @@ return {
   ["max397574/better-escape.nvim"] = { disable = true },
 
   ["andymass/vim-matchup"] = { after = "nvim-treesitter" },
-  ["nvim-treesitter/playground"] = { after = "nvim-treesitter" },
   ["arsham/indent-tools.nvim"] = {
     opt = true,
     setup = function() table.insert(astronvim.file_plugins, "indent-tools.nvim") end,
@@ -53,10 +52,6 @@ return {
     after = "telescope.nvim",
     config = function() require "user.plugins.telescope-file-browser" end,
   },
-  ["nvim-telescope/telescope-hop.nvim"] = {
-    after = "telescope.nvim",
-    config = function() require "user.plugins.telescope-hop" end,
-  },
   ["nvim-telescope/telescope-media-files.nvim"] = {
     after = "telescope.nvim",
     config = function() require "user.plugins.telescope-media-files" end,
@@ -65,7 +60,6 @@ return {
     after = "telescope.nvim",
     config = function() require "user.plugins.telescope-project" end,
   },
-  ["nvim-treesitter/nvim-treesitter-textobjects"] = { after = "nvim-treesitter" },
   ["p00f/clangd_extensions.nvim"] = {
     after = "mason-lspconfig.nvim",
     config = function() require "user.plugins.clangd_extensions" end,
@@ -125,7 +119,9 @@ return {
     event = { "BufReadPre" },
     config = function() require("user.plugins.mini").setup() end,
   },
-
+  ["rmagatti/goto-preview"] = {
+    config = function() require("user.plugins.goto-preview").setup() end,
+  },
   ------------------------
   -- CODE DOCUMENTATION --
   ------------------------
@@ -167,13 +163,6 @@ return {
   ------------------------
   --        JUMP        --
   ------------------------
-  ["phaazon/hop.nvim"] = {
-    cmd = "HopWord",
-    module = "hop",
-    keys = { "f", "F", "t", "T" },
-    config = function() require("user.plugins.hop").setup() end,
-    disable = true,
-  },
   ["ggandor/leap.nvim"] = {
     keys = { "s", "S" },
     config = function()
@@ -428,5 +417,15 @@ return {
     run = "bash ./install.sh",
     cmd = { "SnipRun", "SnipInfo", "SnipReset", "SnipReplMemoryClean", "SnipClose", "SnipLive" },
     module = { "sniprun", "sniprun.api" },
+  },
+
+  ------------------------
+  --     TREESITTER     --
+  ------------------------
+  ["nvim-treesitter/nvim-treesitter-textobjects"] = { after = "nvim-treesitter" },
+  ["nvim-treesitter/playground"] = { after = "nvim-treesitter" },
+  ["romgrk/nvim-treesitter-context"] = {
+    config = function() require("user.plugins.treesitter.context").setup() end,
+    disable = false,
   },
 }

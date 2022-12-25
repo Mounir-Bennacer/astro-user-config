@@ -9,7 +9,7 @@ require("nightfox").setup {
       ["dap-ui"] = true,
       diagnostic = true,
       gitsigns = true,
-      hop = true,
+      hop = false,
       native_lsp = true,
       neotree = true,
       notify = true,
