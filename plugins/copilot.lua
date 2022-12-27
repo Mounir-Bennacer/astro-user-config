@@ -18,22 +18,16 @@ require("copilot").setup {
     },
   },
   suggestion = {
-    auto_trigger = true,
-    keymap = {
-      accept = "<M-y>",
-      prev = "<M-[>",
-      next = "<M-]>",
-      dismiss = "<C-]>",
+    accept = false,
+  },
+  ft_disable = { "markdown" },
+  server_opts_overrides = {
+    -- trace = "verbose",
+    settings = {
+      advanced = {
+        listCount = 10, -- #completions for panel
+        inlineSuggestCount = 3, -- #completions for getCompletions
+      },
     },
   },
-  -- ft_disable = { "markdown" },
-  -- server_opts_overrides = {
-  --   -- trace = "verbose",
-  --   settings = {
-  --     advanced = {
-  --       listCount = 10, -- #completions for panel
-  --       inlineSuggestCount = 3, -- #completions for getCompletions
-  --     },
-  --   },
-  -- },
 }

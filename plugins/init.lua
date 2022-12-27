@@ -1,10 +1,18 @@
 return {
   --------------------------------------------        STARTUP SCREEN        --------------------------------------------
   ["goolord/alpha-nvim"] = {
-    disable = true,
-    config = function() require "user.plugins.alpha" end,
+    disable = false,
+    config = function() require("user.plugins.alpha").setup() end,
   },
-
+  ["folke/drop.nvim"] = {
+    event = "VimEnter",
+    config = function()
+      math.randomseed(os.time())
+      local theme = ({ "stars", "snow", "xmas" })[math.random(1, 3)]
+      require("drop").setup { theme = theme }
+    end,
+    disable = true,
+  },
   --------------------------------------------            CMP               --------------------------------------------
   ["hrsh7th/cmp-calc"] = { after = "nvim-cmp", config = function() require "user.plugins.cmp-calc" end },
   ["hrsh7th/cmp-emoji"] = { after = "nvim-cmp", config = function() require "user.plugins.cmp-emoji" end },

@@ -86,17 +86,14 @@ cmp.setup {
     ["<CR>"] = cmp.mapping.confirm { select = false },
     ["<Right>"] = cmp.mapping.confirm { select = true },
     ["<Tab>"] = cmp.mapping(function(fallback)
-      if cmp.visible() then
-        cmp.select_next_item()
-      elseif luasnip.jumpable(1) then
-        luasnip.jump(1)
-      elseif luasnip.expand_or_jumpable() then
-        luasnip.expand_or_jump()
+      if require("copilot.suggestion").is_visible() then
+        require("copilot.suggestion").accept()
+      elseif cmp.visible() then
+        cmp.select_next_item { behavior = cmp.SelectBehavior.Insert }
       elseif luasnip.expandable() then
         luasnip.expand()
-      elseif check_backspace() then
-        -- cmp.complete()
-        fallback()
+      elseif has_words_before() then
+        cmp.complete()
       else
         fallback()
       end
