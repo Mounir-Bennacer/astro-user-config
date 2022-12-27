@@ -1,91 +1,23 @@
 return {
+  --------------------------------------------        STARTUP SCREEN        --------------------------------------------
   ["goolord/alpha-nvim"] = {
     disable = true,
     config = function() require "user.plugins.alpha" end,
   },
-  ["max397574/better-escape.nvim"] = { disable = true },
 
-  ["andymass/vim-matchup"] = { after = "nvim-treesitter" },
-  ["arsham/indent-tools.nvim"] = {
-    opt = true,
-    setup = function() table.insert(astronvim.file_plugins, "indent-tools.nvim") end,
-    requires = { "arsham/arshlib.nvim", module = "arshlib" },
-    config = function() require "user.plugins.indent-tools" end,
-  },
-  ["ethanholz/nvim-lastplace"] = {
-    opt = true,
-    setup = function() table.insert(astronvim.file_plugins, "nvim-lastplace") end,
-    config = function() require "user.plugins.nvim-lastplace" end,
-  },
+  --------------------------------------------            CMP               --------------------------------------------
   ["hrsh7th/cmp-calc"] = { after = "nvim-cmp", config = function() require "user.plugins.cmp-calc" end },
   ["hrsh7th/cmp-emoji"] = { after = "nvim-cmp", config = function() require "user.plugins.cmp-emoji" end },
   ["jc-doyle/cmp-pandoc-references"] = {
     after = "nvim-cmp",
     config = function() require "user.plugins.cmp-pandoc-references" end,
   },
-  ["jose-elias-alvarez/typescript.nvim"] = {
-    after = "mason-lspconfig.nvim",
-    config = function() require "user.plugins.typescript" end,
-  },
-  ["junegunn/vim-easy-align"] = {
-    opt = true,
-    setup = function() table.insert(astronvim.file_plugins, "vim-easy-align") end,
-  },
   ["kdheepak/cmp-latex-symbols"] = {
     after = "nvim-cmp",
     config = function() require "user.plugins.cmp-latex-symbols" end,
   },
-  ["machakann/vim-sandwich"] = {
-    opt = true,
-    setup = function() table.insert(astronvim.file_plugins, "vim-sandwich") end,
-  },
-  ["mxsdev/nvim-dap-vscode-js"] = {
-    after = "mason-nvim-dap.nvim",
-    config = function() require "user.plugins.nvim-dap-vscode-js" end,
-  },
-  ["nanotee/sqls.nvim"] = { module = "sqls" },
-  ["nvim-telescope/telescope-bibtex.nvim"] = {
-    after = "telescope.nvim",
-    config = function() require "user.plugins.telescope-bibtex" end,
-  },
-  ["nvim-telescope/telescope-file-browser.nvim"] = {
-    after = "telescope.nvim",
-    config = function() require "user.plugins.telescope-file-browser" end,
-  },
-  ["nvim-telescope/telescope-media-files.nvim"] = {
-    after = "telescope.nvim",
-    config = function() require "user.plugins.telescope-media-files" end,
-  },
-  ["nvim-telescope/telescope-project.nvim"] = {
-    after = "telescope.nvim",
-    config = function() require "user.plugins.telescope-project" end,
-  },
-  ["p00f/clangd_extensions.nvim"] = {
-    after = "mason-lspconfig.nvim",
-    config = function() require "user.plugins.clangd_extensions" end,
-  },
-  ["lvimuser/lsp-inlayhints.nvim"] = {
-    module = "lsp-inlayhints",
-    config = function() require "user.plugins.lsp-inlayhints" end,
-  },
-  ["sindrets/diffview.nvim"] = {
-    opt = true,
-    setup = function() table.insert(astronvim.git_plugins, "diffview.nvim") end,
-    config = function() require "user.plugins.diffview" end,
-  },
-  ["theHamsta/nvim-dap-virtual-text"] = {
-    after = "nvim-dap",
-    config = function() require "user.plugins.nvim-dap-virtual-text" end,
-  },
-  ["wakatime/vim-wakatime"] = {
-    -- opt = true,
-    setup = function() table.insert(astronvim.file_plugins, "vim-wakatime") end,
-  },
-  ["ziontee113/syntax-tree-surfer"] = {
-    module = "syntax-tree-surfer",
-    config = function() require "user.plugins.syntax-tree-surfer" end,
-  },
 
+  --------------------------------------------           GITHUB             --------------------------------------------
   ["pwntester/octo.nvim"] = {
     cmd = "Octo",
     requires = {
@@ -96,10 +28,13 @@ return {
     config = function() require("octo").setup() end,
     disable = false,
   },
+  ["sindrets/diffview.nvim"] = {
+    opt = true,
+    setup = function() table.insert(astronvim.git_plugins, "diffview.nvim") end,
+    config = function() require "user.plugins.diffview" end,
+  },
 
-  ----------------------
-  --     IDE LIKE     --
-  ----------------------
+  --------------------------------------------           IDE LIKE           --------------------------------------------
   ["karb94/neoscroll.nvim"] = {
     event = "BufReadPre",
     config = function() require("user.plugins.neoscroll").setup() end,
@@ -122,9 +57,8 @@ return {
   ["rmagatti/goto-preview"] = {
     config = function() require("user.plugins.goto-preview").setup() end,
   },
-  ------------------------
-  -- CODE DOCUMENTATION --
-  ------------------------
+
+  --------------------------------------------      CODE DOCUMENTATION      --------------------------------------------
   ["danymat/neogen"] = {
     config = function() require("user.plugins.neogen").setup() end,
     cmd = { "Neogen" },
@@ -137,9 +71,8 @@ return {
     cmd = { "DogeGenerate", "DogeCreateDocStandard" },
     disable = false,
   },
-  ------------------------
-  --    COLOUR HELPER   --
-  ------------------------
+
+  --------------------------------------------        COLOUR HELPER         --------------------------------------------
   ["max397574/colortils.nvim"] = {
     cmd = "Colortils",
     config = function() require("colortils").setup() end,
@@ -148,9 +81,8 @@ return {
     cmd = { "PickColor", "PickColorInsert" },
     config = function() require "color-picker" end,
   },
-  ------------------------
-  --   CODE SUGGESTION  --
-  ------------------------
+
+  --------------------------------------------       CODE SUGGESTION        --------------------------------------------
   ["zbirenbaum/copilot.lua"] = {
     config = function() require "user.plugins.copilot" end,
   },
@@ -160,9 +92,7 @@ return {
     config = function() require("copilot_cmp").setup() end,
   },
 
-  ------------------------
-  --        JUMP        --
-  ------------------------
+  --------------------------------------------             JUMP             --------------------------------------------
   ["ggandor/leap.nvim"] = {
     keys = { "s", "S" },
     config = function()
@@ -182,9 +112,7 @@ return {
   },
   ["AndrewRadev/splitjoin.vim"] = { keys = { "gS", "gJ" }, disable = false },
 
-  ------------------------
-  --      MARKDOWN      --
-  ------------------------
+  --------------------------------------------            MARKDOWN          --------------------------------------------
   ["iamcco/markdown-preview.nvim"] = {
     opt = true,
     run = function() vim.fn["mkdp#util#install"]() end,
@@ -218,9 +146,8 @@ return {
     config = function() require("mind").setup() end,
     disable = true,
   },
-  ------------------------
-  --       THEMES       --
-  ------------------------
+
+  --------------------------------------------            THEMES            --------------------------------------------
   ["EdenEast/nightfox.nvim"] = {
     module = "nightfox",
     config = function() require "user.plugins.nightfox" end,
@@ -287,9 +214,8 @@ return {
     config = function() require "user.plugins.themes.kanagawa" end,
     disable = false,
   },
-  ------------------------
-  --       TESTING      --
-  ------------------------
+
+  --------------------------------------------            TESTING           --------------------------------------------
   ["puremourning/vimspector"] = {
     cmd = { "VimspectorInstall", "VimspectorUpdate" },
     fn = { "vimspector#Launch()", "vimspector#ToggleBreakpoint", "vimspector#Continue" },
@@ -316,9 +242,8 @@ return {
     config = function() require("user.plugins.neotest").setup() end,
     disable = false,
   },
-  ------------------------
-  --       WEB DEB      --
-  ------------------------
+
+  --------------------------------------------            WEB DEV           --------------------------------------------
   ["vuki656/package-info.nvim"] = {
     opt = true,
     requires = {
@@ -330,9 +255,25 @@ return {
     disable = false,
   },
 
-  ------------------------
-  --     REST CLIENT    --
-  ------------------------
+  ["jose-elias-alvarez/typescript.nvim"] = {
+    after = "mason-lspconfig.nvim",
+    config = function() require "user.plugins.typescript" end,
+  },
+  ["mxsdev/nvim-dap-vscode-js"] = {
+    after = "mason-nvim-dap.nvim",
+    config = function() require "user.plugins.nvim-dap-vscode-js" end,
+  },
+  ["nanotee/sqls.nvim"] = { module = "sqls" },
+  ["theHamsta/nvim-dap-virtual-text"] = {
+    after = "nvim-dap",
+    config = function() require "user.plugins.nvim-dap-virtual-text" end,
+  },
+  ["wakatime/vim-wakatime"] = {
+    -- opt = true,
+    setup = function() table.insert(astronvim.file_plugins, "vim-wakatime") end,
+  },
+
+  --------------------------------------------          REST CLIENT         --------------------------------------------
   ["NTBBloodbath/rest.nvim"] = {
     config = function()
       require("rest-nvim").setup {}
@@ -340,9 +281,8 @@ return {
     end,
     disable = true,
   },
-  ------------------------
-  --       SIDEBAR      --
-  ------------------------
+
+  --------------------------------------------           SIDEBAR            --------------------------------------------
   ["liuchengxu/vista.vim"] = {
     cmd = { "Vista" },
     config = function() vim.g.vista_default_executive = "nvim_lsp" end,
@@ -365,17 +305,14 @@ return {
     module = { "aerial", "telescope._extensions.aerial" },
     cmd = { "AerialToggle" },
   },
-  ------------------------
-  --      TODO LIST     --
-  ------------------------
+
+  --------------------------------------------           TODO LIST          --------------------------------------------
   ["folke/todo-comments.nvim"] = {
     config = function() require("config.todocomments").setup() end,
     cmd = { "TodoQuickfix", "TodoTrouble", "TodoTelescope" },
   },
 
-  ------------------------
-  --    TRANSLATION     --
-  ------------------------
+  --------------------------------------------         TRANSLATION          --------------------------------------------
   ["voldikss/vim-translator"] = {
     cmd = { "Translate", "TranslateV", "TranslateW", "TranslateWV", "TranslateR", "TranslateRV", "TranslateX" },
     config = function()
@@ -387,9 +324,7 @@ return {
     cmd = "Pantran",
   },
 
-  ------------------------
-  -- REPL & CODE RUNNER --
-  ------------------------
+  --------------------------------------------      REPL & CODE RUNNER      --------------------------------------------
   ["hkupty/iron.nvim"] = {
     config = function() require("user.plugins.iron").setup() end,
     disable = true,
@@ -419,13 +354,65 @@ return {
     module = { "sniprun", "sniprun.api" },
   },
 
-  ------------------------
-  --     TREESITTER     --
-  ------------------------
+  --------------------------------------------          TELESCOPE           --------------------------------------------
+  ["nvim-telescope/telescope-bibtex.nvim"] = {
+    after = "telescope.nvim",
+    config = function() require "user.plugins.telescope-bibtex" end,
+  },
+  ["nvim-telescope/telescope-file-browser.nvim"] = {
+    after = "telescope.nvim",
+    config = function() require "user.plugins.telescope-file-browser" end,
+  },
+  ["nvim-telescope/telescope-media-files.nvim"] = {
+    after = "telescope.nvim",
+    config = function() require "user.plugins.telescope-media-files" end,
+  },
+  ["nvim-telescope/telescope-project.nvim"] = {
+    after = "telescope.nvim",
+    config = function() require "user.plugins.telescope-project" end,
+  },
+
+  --------------------------------------------          TREESITTER          --------------------------------------------
   ["nvim-treesitter/nvim-treesitter-textobjects"] = { after = "nvim-treesitter" },
   ["nvim-treesitter/playground"] = { after = "nvim-treesitter" },
   ["romgrk/nvim-treesitter-context"] = {
     config = function() require("user.plugins.treesitter.context").setup() end,
     disable = false,
+  },
+
+  --------------------------------------------         MISCELLANEOUS        --------------------------------------------
+  ["max397574/better-escape.nvim"] = { disable = true },
+
+  ["andymass/vim-matchup"] = { after = "nvim-treesitter" },
+  ["arsham/indent-tools.nvim"] = {
+    opt = true,
+    setup = function() table.insert(astronvim.file_plugins, "indent-tools.nvim") end,
+    requires = { "arsham/arshlib.nvim", module = "arshlib" },
+    config = function() require "user.plugins.indent-tools" end,
+  },
+  ["ethanholz/nvim-lastplace"] = {
+    opt = true,
+    setup = function() table.insert(astronvim.file_plugins, "nvim-lastplace") end,
+    config = function() require "user.plugins.nvim-lastplace" end,
+  },
+  ["junegunn/vim-easy-align"] = {
+    opt = true,
+    setup = function() table.insert(astronvim.file_plugins, "vim-easy-align") end,
+  },
+  ["machakann/vim-sandwich"] = {
+    opt = true,
+    setup = function() table.insert(astronvim.file_plugins, "vim-sandwich") end,
+  },
+  ["p00f/clangd_extensions.nvim"] = {
+    after = "mason-lspconfig.nvim",
+    config = function() require "user.plugins.clangd_extensions" end,
+  },
+  ["lvimuser/lsp-inlayhints.nvim"] = {
+    module = "lsp-inlayhints",
+    config = function() require "user.plugins.lsp-inlayhints" end,
+  },
+  ["ziontee113/syntax-tree-surfer"] = {
+    module = "syntax-tree-surfer",
+    config = function() require "user.plugins.syntax-tree-surfer" end,
   },
 }
