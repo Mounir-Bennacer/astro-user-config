@@ -158,7 +158,7 @@ return {
   --------------------------------------------            THEMES            --------------------------------------------
   ["EdenEast/nightfox.nvim"] = {
     module = "nightfox",
-    config = function() require "user.plugins.nightfox" end,
+    config = function() require "user.plugins.themes.nightfox" end,
   },
   ["pineapplegiant/spaceduck"] = { branch = "main" },
   ["tomasr/molokai"] = {},
