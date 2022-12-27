@@ -357,19 +357,19 @@ return {
   --------------------------------------------          TELESCOPE           --------------------------------------------
   ["nvim-telescope/telescope-bibtex.nvim"] = {
     after = "telescope.nvim",
-    config = function() require "user.plugins.telescope-bibtex" end,
+    config = function() require "user.plugins.telescope.telescope-bibtex" end,
   },
   ["nvim-telescope/telescope-file-browser.nvim"] = {
     after = "telescope.nvim",
-    config = function() require "user.plugins.telescope-file-browser" end,
+    config = function() require "user.plugins.telescope.telescope-file-browser" end,
   },
   ["nvim-telescope/telescope-media-files.nvim"] = {
     after = "telescope.nvim",
-    config = function() require "user.plugins.telescope-media-files" end,
+    config = function() require "user.plugins.telescope.telescope-media-files" end,
   },
   ["nvim-telescope/telescope-project.nvim"] = {
     after = "telescope.nvim",
-    config = function() require "user.plugins.telescope-project" end,
+    config = function() require "user.plugins.telescope.telescope-project" end,
   },
 
   --------------------------------------------          TREESITTER          --------------------------------------------
