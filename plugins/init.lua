@@ -96,19 +96,6 @@ return {
     disable = false,
   },
 
-  ["zbirenbaum/copilot.lua"] = {
-    opt = true,
-    disable = true,
-    config = function() require "user.plugins.copilot" end,
-  },
-
-  ["zbirenbaum/copilot-cmp"] = {
-    opt = true,
-    disable = true,
-    after = { "copilot.lua" },
-    config = function() require("copilot_cmp").setup() end,
-  },
-
   --------------------------------------------             JUMP             --------------------------------------------
   ["ggandor/leap.nvim"] = {
     keys = { "s", "S" },
