@@ -85,22 +85,17 @@ cmp.setup {
     -- Set `select` to `false` to only confirm explicitly selected items.
     ["<CR>"] = cmp.mapping.confirm { select = false },
     ["<Right>"] = cmp.mapping.confirm { select = true },
-    -- ["<Tab>"] = cmp.mapping(function(fallback)
-    --   if require("copilot.suggestion").is_visible() then
-    --     require("copilot.suggestion").accept()
-    --   elseif cmp.visible() then
-    --     cmp.select_next_item { behavior = cmp.SelectBehavior.Insert }
-    --   elseif luasnip.expandable() then
-    --     luasnip.expand()
-    --   elseif has_words_before() then
-    --     cmp.complete()
-    --   else
-    --     fallback()
-    --   end
-    -- end, {
-    --   "i",
-    --   "s",
-    -- }),
+    ["<Tab>"] = cmp.mapping(function(fallback)
+      local col = vim.fn.col "." - 1
+
+      if cmp.visible() then
+        cmp.select_next_item(cmp_select_opts)
+      elseif col == 0 or vim.fn.getline("."):sub(col, col):match "%s" then
+        fallback()
+      else
+        cmp.complete()
+      end
+    end, { "i", "s" }),
     ["<S-Tab>"] = cmp.mapping(function(fallback)
       if cmp.visible() then
         cmp.select_prev_item()
