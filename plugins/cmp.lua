@@ -87,7 +87,6 @@ cmp.setup {
     ["<Right>"] = cmp.mapping.confirm { select = true },
     ["<Tab>"] = cmp.mapping(function(fallback)
       local col = vim.fn.col "." - 1
-
       if cmp.visible() then
         cmp.select_next_item(cmp_select_opts)
       elseif col == 0 or vim.fn.getline("."):sub(col, col):match "%s" then
