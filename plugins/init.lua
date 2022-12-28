@@ -91,11 +91,20 @@ return {
   },
 
   --------------------------------------------       CODE SUGGESTION        --------------------------------------------
+  ["github/copilot.vim"] = {
+    event = "InsertEnter",
+    disable = false,
+  },
+
   ["zbirenbaum/copilot.lua"] = {
+    opt = true,
+    disable = true,
     config = function() require "user.plugins.copilot" end,
   },
 
   ["zbirenbaum/copilot-cmp"] = {
+    opt = true,
+    disable = true,
     after = { "copilot.lua" },
     config = function() require("copilot_cmp").setup() end,
   },

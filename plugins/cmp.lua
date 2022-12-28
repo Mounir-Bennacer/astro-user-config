@@ -85,22 +85,22 @@ cmp.setup {
     -- Set `select` to `false` to only confirm explicitly selected items.
     ["<CR>"] = cmp.mapping.confirm { select = false },
     ["<Right>"] = cmp.mapping.confirm { select = true },
-    ["<Tab>"] = cmp.mapping(function(fallback)
-      if require("copilot.suggestion").is_visible() then
-        require("copilot.suggestion").accept()
-      elseif cmp.visible() then
-        cmp.select_next_item { behavior = cmp.SelectBehavior.Insert }
-      elseif luasnip.expandable() then
-        luasnip.expand()
-      elseif has_words_before() then
-        cmp.complete()
-      else
-        fallback()
-      end
-    end, {
-      "i",
-      "s",
-    }),
+    -- ["<Tab>"] = cmp.mapping(function(fallback)
+    --   if require("copilot.suggestion").is_visible() then
+    --     require("copilot.suggestion").accept()
+    --   elseif cmp.visible() then
+    --     cmp.select_next_item { behavior = cmp.SelectBehavior.Insert }
+    --   elseif luasnip.expandable() then
+    --     luasnip.expand()
+    --   elseif has_words_before() then
+    --     cmp.complete()
+    --   else
+    --     fallback()
+    --   end
+    -- end, {
+    --   "i",
+    --   "s",
+    -- }),
     ["<S-Tab>"] = cmp.mapping(function(fallback)
       if cmp.visible() then
         cmp.select_prev_item()
@@ -124,6 +124,7 @@ cmp.setup {
         vim_item.kind = icons.misc.Robot
         vim_item.kind_hl_group = "CmpItemKindTabnine"
       end
+
       if entry.source.name == "copilot" then
         vim_item.kind = icons.git.Octoface
         vim_item.kind_hl_group = "CmpItemKindCopilot"
@@ -226,8 +227,6 @@ cmp.setup {
       compare.sort_text,
       compare.length,
       compare.order,
-      -- require("copilot_cmp.comparators").prioritize,
-      -- require("copilot_cmp.comparators").score,
     },
   },
   confirm_opts = {
