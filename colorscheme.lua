@@ -1,2 +1,1 @@
--- return "duskfox"
-return "ayu"
+return "duskfox"
