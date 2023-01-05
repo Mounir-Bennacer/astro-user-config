@@ -365,8 +365,10 @@ return {
   --------------------------------------------      REPL & CODE RUNNER      --------------------------------------------
   ----------------------------------------------------------------------------------------------------------------------
   ["hkupty/iron.nvim"] = {
-    config = function() require("user.plugins.iron").setup() end,
-    disable = true,
+    -- opt = false,
+    -- disable = false,
+    tag = "v3.0",
+    -- config = function() require("user.plugins.iron").setup() end,
   },
 
   ["stevearc/overseer.nvim"] = {
@@ -387,12 +389,34 @@ return {
     },
     config = function() require("overseer").setup() end,
   },
+
   ["michaelb/sniprun"] = {
     run = "bash ./install.sh",
     cmd = { "SnipRun", "SnipInfo", "SnipReset", "SnipReplMemoryClean", "SnipClose", "SnipLive" },
     module = { "sniprun", "sniprun.api" },
   },
 
+  ["luk400/vim-jukit"] = {
+    cmd = { "Jukit" },
+    config = function() require("jukit").setup() end,
+    opt = true,
+    disable = true,
+  },
+
+  ["kana/vim-textobj-user"] = {
+    opt = false,
+    disable = false,
+  },
+
+  ["GCBallesteros/vim-textobj-hydrogen"] = {
+    opt = false,
+    disable = false,
+  },
+
+  ["goerz/jupytext.vim"] = {
+    opt = false,
+    disable = false,
+  },
   ----------------------------------------------------------------------------------------------------------------------
   --------------------------------------------          TELESCOPE           --------------------------------------------
   ----------------------------------------------------------------------------------------------------------------------
