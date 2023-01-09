@@ -115,14 +115,17 @@ return {
   --------------------------------------------             JUMP             --------------------------------------------
   ----------------------------------------------------------------------------------------------------------------------
   ["ggandor/leap.nvim"] = {
+    disable = true,
+    opt = true,
     keys = { "s", "S" },
     config = function()
       local leap = require "leap"
       leap.add_default_mappings()
     end,
-    disable = false,
   },
   ["abecodes/tabout.nvim"] = {
+    disable = true,
+    opt = true,
     after = { "nvim-cmp" },
     config = function()
       require("tabout").setup {
@@ -343,7 +346,8 @@ return {
   --------------------------------------------           TODO LIST          --------------------------------------------
   ----------------------------------------------------------------------------------------------------------------------
   ["folke/todo-comments.nvim"] = {
-    config = function() require("config.todocomments").setup() end,
+    --TODO : add something
+    config = function() require("user.plugins.todo").setup() end,
     cmd = { "TodoQuickfix", "TodoTrouble", "TodoTelescope" },
   },
 

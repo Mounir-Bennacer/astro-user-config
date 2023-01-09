@@ -1,6 +1,6 @@
 local M = {}
 
-local icons = require "config.icons"
+local icons = require "user.plugins.icons"
 
 local error_red = "#F44747"
 local warning_orange = "#ff8800"
