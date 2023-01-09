@@ -346,7 +346,6 @@ return {
   --------------------------------------------           TODO LIST          --------------------------------------------
   ----------------------------------------------------------------------------------------------------------------------
   ["folke/todo-comments.nvim"] = {
-    --TODO : add something
     config = function() require("user.plugins.todo").setup() end,
     cmd = { "TodoQuickfix", "TodoTrouble", "TodoTelescope" },
   },

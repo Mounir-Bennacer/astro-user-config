@@ -12,12 +12,13 @@ function M.setup()
   require("todo-comments").setup {
     signs = true,
     keywords = {
-      FIX = { icon = icons.ui.Bug, color = error_red },
+      FIX = { icon = icons.ui.Bug, color = error_red, alt = { "FIXME", "BUG", "FIXIT", "ISSUE" } },
       TODO = { icon = icons.ui.Check, color = hint_blue },
       HACK = { icon = icons.ui.Fire, color = warning_orange },
-      WARN = { icon = icons.diagnostics.Warning, color = warning_orange },
-      PERF = { icon = icons.ui.Dashboard, color = perf_purple },
-      NOTE = { icon = icons.ui.Note, color = info_yellow },
+      WARN = { icon = icons.diagnostics.Warning, color = warning_orange, alt = { "WARNING", "XXX" } },
+      PERF = { icon = icons.ui.Dashboard, color = perf_purple, alt = { "OPTIM", "PERFORMANCE", "OPTIMIZE" } },
+      NOTE = { icon = icons.ui.Note, color = info_yellow, alt = { "INFO" } },
+      TEST = { icon = icons.ui.Circle, color = warning_orange, alt = { "TESTING", "PASSED", "FAILED" } },
     },
   }
 end
