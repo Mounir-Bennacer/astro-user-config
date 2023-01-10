@@ -35,17 +35,17 @@ return {
 
       m = {
         name = "Compiler",
-        k = {
-          function()
-            vim.cmd "silent! write"
-            local filename = vim.fn.expand "%:t"
-            utils.async_run(
-              { "compiler", vim.fn.expand "%:p" },
-              function() utils.quick_notification("Compiled " .. filename) end
-            )
-          end,
-          "Compile",
-        },
+        -- k = {
+        --   function()
+        --     vim.cmd "silent! write"
+        --     local filename = vim.fn.expand "%:t"
+        --     utils.async_run(
+        --       { "compiler", vim.fn.expand "%:p" },
+        --       function() utils.quick_notification("Compiled " .. filename) end
+        --     )
+        --   end,
+        --   "Compile",
+        -- },
         a = {
           function()
             vim.notify "Autocompile Started"
@@ -134,10 +134,10 @@ return {
           function() require("syntax-tree-surfer").targeted_jump { "white_statement" } end,
           "Go to While Statements",
         },
-        s = {
-          function() require("syntax-tree-surfer").targeted_jump { "switch_statement" } end,
-          "Go to Switch Statements",
-        },
+        -- s = {
+        --   function() require("syntax-tree-surfer").targeted_jump { "switch_statement" } end,
+        --   "Go to Switch Statements",
+        -- },
         t = {
           function()
             require("syntax-tree-surfer").targeted_jump {

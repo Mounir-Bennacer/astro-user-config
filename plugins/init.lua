@@ -113,7 +113,7 @@ return {
 
   ----------------------------------------------------------------------------------------------------------------------
   --------------------------------------------             JUMP             --------------------------------------------
-  ----------------------------------------------------------------------------------------------------------------------
+  ---------------------------------------------------------------------------------------------------------------------
   ["ggandor/leap.nvim"] = {
     disable = true,
     opt = true,
@@ -122,6 +122,18 @@ return {
       local leap = require "leap"
       leap.add_default_mappings()
     end,
+  },
+  ["rlane/pounce.nvim"] = {
+    disable = false,
+    config = function() require("user.plugins.pounce").setup() end,
+    event = "BufEnter",
+  },
+  ["phaazon/hop.nvim"] = {
+    disable = false,
+    cmd = "HopWord",
+    module = "hop",
+    keys = { "f", "F", "t", "T" },
+    config = function() require("user.plugins.hop").setup() end,
   },
   ["abecodes/tabout.nvim"] = {
     disable = true,
@@ -424,6 +436,8 @@ return {
   --------------------------------------------          TELESCOPE           --------------------------------------------
   ----------------------------------------------------------------------------------------------------------------------
   ["nvim-telescope/telescope-bibtex.nvim"] = {
+    disable = true,
+    opt = true,
     after = "telescope.nvim",
     config = function() require "user.plugins.telescope.telescope-bibtex" end,
   },
@@ -484,6 +498,8 @@ return {
     config = function() require "user.plugins.lsp-inlayhints" end,
   },
   ["ziontee113/syntax-tree-surfer"] = {
+    disable = true,
+    opt = true,
     module = "syntax-tree-surfer",
     config = function() require "user.plugins.syntax-tree-surfer" end,
   },
