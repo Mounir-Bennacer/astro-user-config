@@ -111,36 +111,16 @@ return {
   --------------------------------------------             JUMP             --------------------------------------------
   ---------------------------------------------------------------------------------------------------------------------
   ["ggandor/leap.nvim"] = {
-    disable = true,
-    opt = true,
-    keys = { "s", "S" },
-    config = function()
-      local leap = require "leap"
-      leap.add_default_mappings()
-    end,
-  },
-  ["rlane/pounce.nvim"] = {
     disable = false,
-    config = function() require("user.plugins.pounce").setup() end,
-    event = "BufEnter",
-  },
-  ["phaazon/hop.nvim"] = {
-    disable = false,
-    cmd = "HopWord",
-    module = "hop",
-    keys = { "f", "F", "t", "T" },
-    config = function() require("user.plugins.hop").setup() end,
+    opt = false,
+    config = function() require("leap").add_default_mappings() end,
   },
   ["abecodes/tabout.nvim"] = {
-    disable = true,
-    opt = true,
-    after = { "nvim-cmp" },
-    config = function()
-      require("tabout").setup {
-        completion = false,
-        ignore_beginning = true,
-      }
-    end,
+    disable = false,
+    opt = false,
+    config = function() require("user.plugins.tabout").setup() end,
+    wants = { "nvim-treesitter" }, -- or require if not used so far
+    after = { "nvim-cmp" }, -- if a completion plugin is using tabs load it before
   },
   ["AndrewRadev/splitjoin.vim"] = { keys = { "gS", "gJ" }, disable = false },
 
