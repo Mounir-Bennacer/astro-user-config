@@ -115,6 +115,9 @@ return {
     opt = false,
     config = function() require("leap").add_default_mappings() end,
   },
+  ["ggandor/flit.nvim"] = {
+    config = function() require("user.plugins.flit").setup() end,
+  },
   ["abecodes/tabout.nvim"] = {
     disable = false,
     opt = false,
@@ -279,6 +282,15 @@ return {
     after = "mason-lspconfig.nvim",
     config = function() require "user.plugins.typescript" end,
   },
+  ["wakatime/vim-wakatime"] = {
+    -- opt = true,
+    setup = function() table.insert(astronvim.file_plugins, "vim-wakatime") end,
+  },
+
+  ----------------------------------------------------------------------------------------------------------------------
+  --------------------------------------------           DEBUGGING          --------------------------------------------
+  ----------------------------------------------------------------------------------------------------------------------
+
   ["mxsdev/nvim-dap-vscode-js"] = {
     after = "mason-nvim-dap.nvim",
     config = function() require "user.plugins.nvim-dap-vscode-js" end,
@@ -288,11 +300,6 @@ return {
     after = "nvim-dap",
     config = function() require "user.plugins.nvim-dap-virtual-text" end,
   },
-  ["wakatime/vim-wakatime"] = {
-    -- opt = true,
-    setup = function() table.insert(astronvim.file_plugins, "vim-wakatime") end,
-  },
-
   ----------------------------------------------------------------------------------------------------------------------
   --------------------------------------------          REST CLIENT         --------------------------------------------
   ----------------------------------------------------------------------------------------------------------------------
