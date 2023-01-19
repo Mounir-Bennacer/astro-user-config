@@ -233,7 +233,9 @@ return {
     config = function() require "user.plugins.themes.kanagawa" end,
     disable = false,
   },
-
+  ["uloco/bluloco.nvim"] = {
+    requires = { "rktjmp/lush.nvim" },
+  },
   ----------------------------------------------------------------------------------------------------------------------
   --------------------------------------------            TESTING           --------------------------------------------
   ----------------------------------------------------------------------------------------------------------------------
@@ -286,6 +288,7 @@ return {
     -- opt = true,
     setup = function() table.insert(astronvim.file_plugins, "vim-wakatime") end,
   },
+  ["glepnir/lspsaga.nvim"] = { commit = "b7b4777369b441341b2dcd45c738ea4167c11c9e" },
 
   ----------------------------------------------------------------------------------------------------------------------
   --------------------------------------------           DEBUGGING          --------------------------------------------
@@ -485,5 +488,8 @@ return {
     opt = true,
     module = "syntax-tree-surfer",
     config = function() require "user.plugins.syntax-tree-surfer" end,
+  },
+  ["anuvyklack/pretty-fold.nvim"] = {
+    config = function() require("pretty-fold").setup() end,
   },
 }
