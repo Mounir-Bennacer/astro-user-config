@@ -1,10 +1,10 @@
 return {
   ensure_installed = {
     "bash",
-    "cppdbg",
-    "delve",
+    -- "cppdbg",
+    -- "delve",
     "js",
-    "php",
+    -- "php",
     "python",
   },
 }

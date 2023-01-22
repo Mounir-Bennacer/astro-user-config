@@ -4,7 +4,7 @@ return {
     "cssls",
     "gopls",
     "html",
-    "intelephense",
+    -- "intelephense",
     "marksman",
     "neocmake",
     "jsonls",
