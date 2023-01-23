@@ -308,7 +308,9 @@ return {
   ----------------------------------------------------------------------------------------------------------------------
 
   ["rest-nvim/rest.nvim"] = {
-    config = function() require("user.plugins.rest").setup() end,
+    -- config = function() require("user.plugins.rest").setup() end,
+    require("rest-nvim").setup {},
+    vim.keymap.set("n", "<C-j>", "<Plug>RestNvim", { noremap = true, silent = true }),
   },
 
   ----------------------------------------------------------------------------------------------------------------------

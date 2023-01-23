@@ -29,7 +29,7 @@ function M.setup()
     },
     -- Jump to request line on run
     jump_to_request = false,
-    env_file = ".env",
+    env_file = ".env.development",
     custom_dynamic_variables = {},
     yank_dry_run = true,
     vim.keymap.set("n", "<C-j>", "<Plug>RestNvim", { noremap = true, silent = true }),
