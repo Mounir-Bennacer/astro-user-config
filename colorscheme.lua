@@ -1,3 +1,1 @@
--- return "tokyonight"
-return "bluloco-dark"
--- return "onedark"
+return "tokyonight"
