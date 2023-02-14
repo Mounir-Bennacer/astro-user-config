@@ -316,6 +316,18 @@ return {
     after = "nvim-dap",
     config = function() require "user.plugins.nvim-dap-virtual-text" end,
   },
+  ["ldelossa/nvim-dap-projects"] = {
+    after = "nvim-dap",
+  },
+  ["mfussenegger/nvim-dap"] = {
+    requires = {
+      "rcarriga/nvim-dap-ui",
+      "nvim-treesitter/nvim-treesitter",
+      "theHamsta/nvim-dap-virtual-text",
+      "mxsdev/nvim-dap-vscode-js",
+    },
+    config = function() require "user.plugins.dap" end,
+  },
   ----------------------------------------------------------------------------------------------------------------------
   --------------------------------------------          REST CLIENT         --------------------------------------------
   ----------------------------------------------------------------------------------------------------------------------
